@@ -1,0 +1,29 @@
+<%= form_with model: @product do |form| %>
+  <% @product.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  <div class="">
+    <p><%= form.label :title %></p>
+    <%= form.text_field :title %>
+  </div>
+  <div class="">
+    <p><%= form.label :description %></p>
+    <%= form.text_area :description %>
+  </div>
+  <div class="">
+    <p><%= form.label :price %></p>
+    <%= form.number_field :price %>
+  </div>
+  <div class="">
+    <p><%= form.label :photo %></p>
+    <%= form.file_field :photo %>
+  </div>
+  <div class="">
+    <p><%= form.label :category %></p>
+    <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to t('common.back_to_products'), products_path %>
