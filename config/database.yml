@@ -29,10 +29,8 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: jhonny
-
-  # The password associated with the postgres role (username).
-  password: jhonny
+  username: <%= Rails.application.credentials.database[:username] %>
+  password: <%= Rails.application.credentials.database[:password] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -58,9 +56,8 @@ development:
 test:
   <<: *default
   database: vendelo_test
-  username: jhonny
-  # The password associated with the postgres role (username).
-  password: jhonny
+  username: <%= Rails.application.credentials.database[:username] %>
+  password: <%= Rails.application.credentials.database[:password] %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -84,7 +81,6 @@ test:
 production:
   <<: *default
   database: vendelo_production
-  username: jhonny
-  # The password associated with the postgres role (username).
-  password: jhonny
+  username: <%= Rails.application.credentials.database[:username] %>
+  password: <%= Rails.application.credentials.database[:password] %>
   # password: <%= ENV["VENDELO_DATABASE_PASSWORD"] %>

@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @category = categories(:test)
+  end
+
   test 'render a list of products' do
     get products_path
 
     assert_response :success
-    assert_select '.product', 2
+    assert_select '.product', 5
   end
 
   test 'render a detailed product page' do
     get product_path(products(:ps4))
 
     assert_response :success
-    assert_select '.title', 'PS4'
+    assert_select '.title', 'PS4 Fat'
     assert_select '.description', 'PS4 en buen estado'
     assert_select '.price', '$150'
   end
@@ -29,7 +33,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product:{
         title: 'Nintendo 64',
         description: 'Le faltan los cables',
-        price: 1500
+        price: 1500,
+        category_id: @category.id
       }
     }
     assert_redirected_to products_path
@@ -41,7 +46,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product:{
         title: '',
         description: 'Le faltan los cables',
-        price: 1500
+        price: 1500,
+        category_id: @category.id
       }
     }
     assert_response :unprocessable_entity
@@ -59,7 +65,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product:{
         title: 'Nin64',
         description: 'Le faltan los cables',
-        price: 150
+        price: 150,
+        category_id: @category.id
       }
     }
     assert_redirected_to products_path
@@ -71,7 +78,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product:{
         title: 'Nin64',
         description: 'Le faltan los cables',
-        price: nil
+        price: nil,
+        category_id: @category.id
       }
     }
     assert_response :unprocessable_entity
