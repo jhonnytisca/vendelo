@@ -30,25 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  app_name:
+    'SellIt'
   activerecord:
     models:
       product: 'Product'
+      user: 'User'
     attributes:
       product:
         title: 'Title'
         description: 'Description'
         price: 'Price'
         photo: 'Photo'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: 'cannot be empty'
-            description:
-              blank: 'cannot be empty'
-            price:
-              blank: 'cannot be empty'
+      user:
+        email: 'Email'
+        username: 'Username'
+        password: 'Password'
+  shared:
+    header:
+      add: 'Add product'
+      login: 'Login'
+      register: 'Register'
+      delete: 'Logout'
+      categories: 'Categories'
   products:
     edit:
       title: 'Edit product'
@@ -57,14 +61,42 @@ en:
     new:
       title: 'New product'
     create:
-      created: 'Your product has been created succesfully'
+      created: 'Your product has been created successfully'
     update:
-      updated: 'Your product has been updated succesfully'
+      updated: 'Your product has been updated successfully'
     destroy:
-      destroyed: 'Your product has been deleted succesfully'
+      destroyed: 'Your product has been deleted successfully'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
+  categories:
+    edit:
+      title: 'Edit category'
+    index:
+      title: 'Categories'
+    new:
+      title: 'New category'
+    create:
+      created: 'Your category has been created successfully'
+    update:
+      updated: 'Your category has been updated successfully'
+    destroy:
+      destroyed: 'Your category has been deleted successfully'
+    show:
+      edit_product: 'Edit category'
+      delete_product: 'Delete category'
+  authentication:
+    users:
+      create:
+        created: 'The user has been created successfully'
+    sessions:
+      create:
+        created: 'The session has been created successfully'
+        failed: 'Invalid login!'
+      destroy:
+        destroyed: 'Logged out, good bye'
   common:
     confirm: '¿Are you sure?'
     back_to_products: "Back to products"
+    not_logged_in: "You have to log in or create an account"
+

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  namespace :authentication, path: '', as: '' do
+    resources :users, only: [:new, :create], path: '/register', path_names: {new: '/'}
+    resources :sessions, only: [:new, :create, :destroy], path: '/login', path_names: {new: '/'}
+  end
+
   resources :categories, except: :show
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,5 +18,6 @@ Rails.application.routes.draw do
   # get '/products/:id', to: 'products#show', as: :product
   # get '/products/:id/edit', to: 'products#edit', as: :edit_product
   resources :products, path: '/'
+
 
 end

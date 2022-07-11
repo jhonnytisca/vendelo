@@ -8,10 +8,6 @@
     <%= form.select :order_by, options_for_select([['recientes','newest'],['mas caros','expensive'],['mas baratos','cheapest']], params[:order_by]), {}, {onChange: 'this.form.requestSubmit()'} %>
   <% end %>
 
-  <!--<p><%= flash.inspect %></p>-->
-
-  <%= render 'shared/header' %>
-  <br>
   <%= link_to "All", products_path %>
   <%= render partial: 'category', collection: @categories %>
   <%= turbo_frame_tag "products-#{@pagy.page}", class:"products" do %>

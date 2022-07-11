@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @category = categories(:test)
+    login
   end
 
   test 'render a list of products' do
@@ -10,6 +11,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.product', 5
+    assert_select '.category', 10
   end
 
   test 'render a detailed product page' do
@@ -19,6 +21,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select '.title', 'PS4 Fat'
     assert_select '.description', 'PS4 en buen estado'
     assert_select '.price', '$150'
+  end
+
+  test 'render a list of products filtred by category' do
+    get products_path(category_id: categories(:mobile).id)
+
+    assert_response :success
+    assert_select '.product', 2
+
   end
 
   test 'render a form for new product' do

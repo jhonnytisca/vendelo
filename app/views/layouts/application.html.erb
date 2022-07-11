@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= DateTime.now %>
     <%= render "shared/flash" %>
+
+    <%= render 'shared/header' %>
+    <br>
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,7 @@
-<h1>Categories</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render partial: 'category', collection: @categories %>
 
-<%= link_to "New category", new_category_path %>
+<%= link_to t('categories.new.title'), new_category_path %>
 <br>
-<%= link_to "Back to products", products_path %>
+<%= link_to t('common.back_to_products'), products_path %>
