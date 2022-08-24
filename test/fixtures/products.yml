@@ -173,11 +173,11 @@ tennis:
   description: Fabricada en fibra de carbono. Solo un par de arañazos
   price: 135
   category: sports
-  user: pedro
+  user: juan
 
 skate:
   title: Skateboard
   description: Como nuevo con las ruedas recién cambiadas
   price: 75
   category: sports
-  user: pedro
+  user: juan

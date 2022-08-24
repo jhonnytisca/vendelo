@@ -24,6 +24,7 @@ es:
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
+      view_profile: "Ver más productos de %{username}"
   authentication:
     users:
       create:

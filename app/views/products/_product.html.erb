@@ -1,6 +1,13 @@
 <%= link_to product_path(product.id), class: "product", 'data-turbo-frame': "_top" do %>
-  <h3><%= product.title %></h3>
+  <h3>
+    <%= product.title %>
+    <br/>
+    <%= link_to user_path(product.user.username), data: { turbo_frame: "_top" } do %>
+      <small><%= product.user.username %></small>
+    <% end %>
+  </h3>
 <% end %>
+
 <%= image_tag product.photo, width: 200 if product.photo.attached? %>
 <br>
 <span><%= product.description %></span>

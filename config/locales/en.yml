@@ -69,6 +69,7 @@ en:
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
+      view_profile: "View more products by %{username}"
   categories:
     edit:
       title: 'Edit category'
